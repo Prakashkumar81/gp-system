@@ -1,0 +1,35 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "teacher@test.com",
+      "password": "123456",
+      "role": "teacher",
+      "name": "Rahul Sharma"
+    },
+    {
+      "id": 2,
+      "email": "principal@test.com",
+      "password": "123456",
+      "role": "principal",
+      "name": "Dr. Mehta"
+    }
+  ],
+
+  "content": [
+    {
+      "id": 1,
+      "title": "Physics Chapter 1",
+      "subject": "Physics",
+      "description": "Motion and Laws",
+      "status": "approved",
+      "teacherId": 1,
+      "teacherName": "Rahul Sharma",
+      "startTime": "2026-05-11T10:00",
+      "endTime": "2026-05-11T18:00",
+      "rotation": "30",
+      "file": "https://via.placeholder.com/400x200",
+      "rejectionReason": ""
+    }
+  ]
+}
