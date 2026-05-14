@@ -72,39 +72,36 @@ export default function PrincipalDashboard() {
   };
 
   return (
-    <div className="flex bg-gray-100 min-h-screen">
-      {/* SIDEBAR */}
+    <div className="flex glass-container min-h-screen">
       <Sidebar />
 
-      {/* MAIN */}
-      <div className="flex-1 p-8">
-        {/* HEADER */}
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl font-bold">
-            Principal Dashboard
-          </h1>
-
-          <div className="bg-yellow-400 text-black px-5 py-3 rounded-xl font-bold">
-            Pending Reviews: {pendingCount}
+      <div className="flex-1 p-8 relative z-10">
+        <div className="glass-header mb-10">
+          <div>
+            <p className="text-violet-300/70 text-sm uppercase tracking-widest">Principal Console</p>
+            <h1 className="mt-2">Principal Dashboard</h1>
+          </div>
+          <div className="glass-badge warning">
+            ⏳ Pending Reviews: {pendingCount}
           </div>
         </div>
 
         {/* REVIEW BOX */}
-        <div className="bg-white p-6 rounded-2xl shadow">
+        <div className="glass-card">
           <h2 className="text-2xl font-bold mb-6">
-            Uploaded Notes Review
+            📋 Uploaded Notes Review
           </h2>
 
           {notes.length > 0 ? (
-            <div className="space-y-6">
+            <div className="space-y-4">
               {notes.map((note) => (
                 <div
                   key={note.id}
-                  className="border p-5 rounded-2xl"
+                  className="glass-card-sm"
                 >
                   {/* FILE INFO */}
-                  <div className="flex justify-between items-center">
-                    <div>
+                  <div className="flex justify-between items-start flex-wrap gap-4">
+                    <div className="flex-1">
                       <p className="font-bold text-lg">
                         {note.fileName}
                       </p>
@@ -114,10 +111,10 @@ export default function PrincipalDashboard() {
                         <span
                           className={`ml-2 font-bold ${
                             note.status === "Approved"
-                              ? "text-green-600"
+                              ? "text-green-400"
                               : note.status === "Rejected"
-                              ? "text-red-500"
-                              : "text-yellow-500"
+                              ? "text-red-400"
+                              : "text-yellow-400"
                           }`}
                         >
                           {note.status || "Pending"}
@@ -137,23 +134,23 @@ export default function PrincipalDashboard() {
                     {/* ACTION BUTTONS */}
                     {note.status !== "Approved" &&
                       note.status !== "Rejected" && (
-                        <div className="flex gap-3">
+                        <div className="flex gap-3 flex-wrap">
                           <button
                             onClick={() =>
                               approveNote(note.id)
                             }
-                            className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                            className="glass-btn"
                           >
-                            Approve
+                            ✓ Approve
                           </button>
 
                           <button
                             onClick={() =>
                               rejectNote(note.id)
                             }
-                            className="bg-red-500 text-white px-4 py-2 rounded-lg"
+                            className="glass-btn-danger"
                           >
-                            Reject
+                            ✕ Reject
                           </button>
                         </div>
                       )}
@@ -164,7 +161,7 @@ export default function PrincipalDashboard() {
                     note.status !== "Rejected" && (
                       <input
                         type="text"
-                        placeholder="Enter rejection reason"
+                        placeholder="Enter rejection reason..."
                         value={rejectReason[note.id] || ""}
                         onChange={(e) =>
                           setRejectReason({
@@ -173,14 +170,14 @@ export default function PrincipalDashboard() {
                               e.target.value,
                           })
                         }
-                        className="border p-3 rounded-lg w-full mt-4"
+                        className="glass-input w-full mt-4"
                       />
                     )}
                 </div>
               ))}
             </div>
           ) : (
-            <p>No Uploaded Notes</p>
+            <p className="text-center text-gray-400 py-8">No Uploaded Notes</p>
           )}
         </div>
       </div>

@@ -1,20 +1,44 @@
 export default function SplashScreen() {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-[#05060a] overflow-hidden">
+    <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-[#0a0012] via-[#1a0033] to-[#000a1a] overflow-hidden z-50">
+      
+      {/* Dynamic Glowing Orbs */}
+      <div className="absolute w-[800px] h-[800px] bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full top-[-300px] left-[-300px] opacity-30 blur-3xl animate-pulse"></div>
+      <div className="absolute w-[700px] h-[700px] bg-gradient-to-r from-pink-500 to-red-500 rounded-full bottom-[-250px] right-[-250px] opacity-25 blur-3xl animate-pulse" style={{animationDelay: '0.5s'}}></div>
+      <div className="absolute w-[600px] h-[600px] bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full top-1/2 left-1/2 opacity-20 blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
 
-      <div className="glow w-[600px] h-[600px] bg-purple-600 top-[-200px] left-[-200px]"></div>
-      <div className="glow w-[500px] h-[500px] bg-cyan-500 bottom-[-200px] right-[-200px]"></div>
-
-      <div className="text-center z-10">
-        <h1 className="text-7xl font-black tracking-widest bg-gradient-to-r from-cyan-300 via-pink-400 to-purple-500 text-transparent bg-clip-text">
+      {/* Main Content */}
+      <div className="text-center z-20 relative">
+        <style>{`
+          @keyframes float-bounce {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+          }
+          @keyframes glow-text {
+            0%, 100% { text-shadow: 0 0 20px rgba(34, 211, 238, 0.5), 0 0 40px rgba(34, 211, 238, 0.3); }
+            50% { text-shadow: 0 0 30px rgba(236, 72, 153, 0.7), 0 0 60px rgba(236, 72, 153, 0.4); }
+          }
+          .splash-title { animation: float-bounce 3s ease-in-out infinite, glow-text 3s ease-in-out infinite; }
+        `}</style>
+        
+        <h1 className="splash-title text-7xl font-black tracking-widest bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-600 text-transparent bg-clip-text">
           GP SYSTEM
         </h1>
 
-        <p className="text-gray-400 mt-5 tracking-[6px]">
-          SMART MANAGEMENT PORTAL
+        <p className="text-cyan-300 mt-6 tracking-[6px] font-bold text-lg animate-pulse">
+          ⚡ SMART MANAGEMENT PORTAL ⚡
         </p>
 
-        <div className="mt-10 w-14 h-14 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
+        {/* Animated Ring Spinner */}
+        <div className="mt-12 flex justify-center">
+          <div className="relative w-24 h-24">
+            <div className="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-600 animate-spin"></div>
+            <div className="absolute inset-2 rounded-full border border-cyan-400/30"></div>
+            <div className="absolute inset-4 rounded-full border border-pink-400/20 animate-pulse"></div>
+          </div>
+        </div>
+
+        <p className="text-gray-400 mt-8 text-sm tracking-widest">Loading...</p>
       </div>
 
     </div>

@@ -57,37 +57,33 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="flex bg-gray-100 min-h-screen">
-      {/* SIDEBAR */}
+    <div className="flex glass-container min-h-screen">
       <Sidebar />
 
-      {/* MAIN */}
-      <div className="flex-1 p-8">
-        <h1 className="text-4xl font-bold mb-8">
-          Admin Dashboard
-        </h1>
+      <div className="flex-1 p-8 relative z-10">
+        <div className="glass-header mb-10">
+          <div>
+            <p className="text-cyan-300/70 text-sm uppercase tracking-widest">Admin Console</p>
+            <h1 className="mt-2">Admin Dashboard</h1>
+          </div>
+        </div>
 
         {/* CARDS */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-10">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-2xl shadow"
+              className="glass-stat-card"
             >
-              <h2 className="text-gray-500 text-lg">
-                {card.title}
-              </h2>
-
-              <p className="text-4xl font-bold mt-4">
-                {card.value}
-              </p>
+              <div className="stat-label">{card.title}</div>
+              <div className="stat-value">{card.value}</div>
             </div>
           ))}
         </div>
 
         {/* ACTIVITY */}
-        <div className="bg-white p-6 rounded-2xl shadow">
-          <h2 className="text-2xl font-bold mb-4">
+        <div className="glass-card">
+          <h2 className="text-2xl font-bold mb-6">
             System Activity
           </h2>
 

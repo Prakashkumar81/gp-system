@@ -44,16 +44,17 @@ export default function Assign() {
   };
 
   return (
-    <div className="flex bg-gray-100 min-h-screen">
+    <div className="flex glass-container min-h-screen">
       <Sidebar />
 
-      <div className="flex-1 p-8">
-        <h1 className="text-4xl font-bold mb-8">
-          Assign Tasks
-        </h1>
+      <div className="flex-1 p-8 relative z-10">
+        <div className="glass-header mb-10">
+          <h1>📌 Assign Tasks</h1>
+        </div>
 
         {/* FORM */}
-        <div className="bg-white p-6 rounded-2xl shadow max-w-xl mb-10">
+        <div className="glass-card max-w-xl mb-10">
+          <h2 className="text-xl font-bold mb-6">Create New Task</h2>
           <input
             type="text"
             placeholder="Task Title"
@@ -61,7 +62,7 @@ export default function Assign() {
             onChange={(e) =>
               setTaskTitle(e.target.value)
             }
-            className="border p-3 rounded-lg w-full mb-4"
+            className="glass-input w-full mb-4"
           />
 
           <select
@@ -69,7 +70,7 @@ export default function Assign() {
             onChange={(e) =>
               setAssignedTo(e.target.value)
             }
-            className="border p-3 rounded-lg w-full mb-4"
+            className="glass-input w-full mb-6"
           >
             <option value="">
               Select Teacher
@@ -82,16 +83,16 @@ export default function Assign() {
 
           <button
             onClick={assignTask}
-            className="bg-black text-white px-6 py-3 rounded-lg"
+            className="glass-btn w-full"
           >
             Assign Task
           </button>
         </div>
 
         {/* TASK LIST */}
-        <div className="bg-white p-6 rounded-2xl shadow">
-          <h2 className="text-2xl font-bold mb-6">
-            Assigned Tasks
+        <div className="glass-card">
+          <h2 className="text-2xl font-bold mb-8">
+            📋 Assigned Tasks
           </h2>
 
           {tasks.length > 0 ? (
@@ -99,30 +100,21 @@ export default function Assign() {
               {tasks.map((task) => (
                 <div
                   key={task.id}
-                  className="border p-4 rounded-xl"
+                  className="glass-card-sm border-l-4 border-cyan-400"
                 >
                   <p className="font-bold">
                     {task.taskTitle}
                   </p>
 
-                  <p className="mt-2">
-                    Assigned To:
-                    <span className="ml-2 font-semibold">
-                      {task.assignedTo}
-                    </span>
-                  </p>
-
-                  <p className="mt-2">
-                    Status:
-                    <span className="ml-2 font-semibold text-yellow-500">
-                      {task.status}
-                    </span>
-                  </p>
+                  <div className="flex gap-3 mt-3 flex-wrap">
+                    <span className="text-sm text-gray-400">To: <span className="text-white font-semibold capitalize">{task.assignedTo}</span></span>
+                    <span className="glass-badge warning">⏳ {task.status}</span>
+                  </div>
                 </div>
               ))}
             </div>
           ) : (
-            <p>No Tasks Assigned</p>
+            <p className="text-center text-gray-400 py-8">No Tasks Assigned</p>
           )}
         </div>
       </div>

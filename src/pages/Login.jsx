@@ -12,7 +12,7 @@ export default function Login() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
-    }, 3500);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -79,6 +79,16 @@ export default function Login() {
           <p>Admin → admin / admin123</p>
           <p>Principal → principal / principal123</p>
           <p>Teacher → teacher / teacher123</p>
+        </div>
+
+        <div className="mt-4 text-center text-gray-400 text-sm">
+          New user?{" "}
+          <button
+            onClick={() => navigate("/signup")}
+            className="text-cyan-300 hover:text-white underline"
+          >
+            Create account
+          </button>
         </div>
       </div>
     </div>

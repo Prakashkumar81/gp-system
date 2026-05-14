@@ -33,72 +33,66 @@ export default function Tasks() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
+    <div className="glass-container min-h-screen p-8 relative z-10">
       {/* TOP BAR */}
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-4xl font-bold text-black">
-          Assigned Tasks
+      <div className="flex justify-between items-center mb-10 flex-wrap gap-4">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+          📋 Assigned Tasks
         </h1>
 
         <button
           onClick={() => navigate("/dashboard")}
-          className="bg-black text-white px-5 py-2 rounded-lg"
+          className="glass-btn-secondary"
         >
-          Back
+          ← Back
         </button>
       </div>
 
       {/* TABLE */}
-      <div className="bg-white rounded-2xl shadow overflow-hidden">
-        <table className="w-full">
-          <thead className="bg-black text-white">
-            <tr>
-              <th className="p-4 text-left">User</th>
-              <th className="p-4 text-left">Task</th>
-              <th className="p-4 text-left">Status</th>
-              <th className="p-4 text-left">Action</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {tasks.length > 0 ? (
-              tasks.map((task) => (
-                <tr
-                  key={task.id}
-                  className="border-b"
-                >
-                  <td className="p-4">{task.user}</td>
-
-                  <td className="p-4">{task.task}</td>
-
-                  <td className="p-4">
-                    <span className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">
-                      {task.status}
-                    </span>
-                  </td>
-
-                  <td className="p-4">
-                    <button
-                      onClick={() => deleteTask(task.id)}
-                      className="bg-red-500 text-white px-4 py-2 rounded-lg"
-                    >
-                      Delete
-                    </button>
-                  </td>
+      <div className="glass-card overflow-hidden">
+        {tasks.length > 0 ? (
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead className="border-b border-white/10 bg-white/5">
+                <tr>
+                  <th className="p-4 text-left text-cyan-400 font-semibold">User</th>
+                  <th className="p-4 text-left text-cyan-400 font-semibold">Task</th>
+                  <th className="p-4 text-left text-cyan-400 font-semibold">Status</th>
+                  <th className="p-4 text-left text-cyan-400 font-semibold">Action</th>
                 </tr>
-              ))
-            ) : (
-              <tr>
-                <td
-                  colSpan="4"
-                  className="p-6 text-center"
-                >
-                  No Tasks Assigned
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+              </thead>
+
+              <tbody>
+                {tasks.map((task) => (
+                  <tr
+                    key={task.id}
+                    className="border-b border-white/5 hover:bg-white/5 transition"
+                  >
+                    <td className="p-4">{task.user || "—"}</td>
+                    <td className="p-4">{task.task}</td>
+                    <td className="p-4">
+                      <span className="glass-badge warning">
+                        ⏳ {task.status}
+                      </span>
+                    </td>
+                    <td className="p-4">
+                      <button
+                        onClick={() => deleteTask(task.id)}
+                        className="glass-btn-danger text-sm"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-gray-400">No Tasks Assigned</p>
+          </div>
+        )}
       </div>
     </div>
   );

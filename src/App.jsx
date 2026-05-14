@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import Upload from "./pages/Upload";
 import Assign from "./pages/Assign";
@@ -39,6 +40,7 @@ export default function App() {
       <Routes>
         {/* LOGIN */}
         <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
 
         {/* ADMIN DASHBOARD */}
         <Route

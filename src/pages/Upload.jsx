@@ -62,59 +62,56 @@ export default function Upload() {
   };
 
   return (
-    <div className="flex bg-gray-100 min-h-screen">
-      {/* SIDEBAR */}
+    <div className="flex glass-container min-h-screen">
       <Sidebar />
 
-      {/* MAIN */}
-      <div className="flex-1 p-8">
-        <h1 className="text-4xl font-bold mb-8">
-          Upload Notes
-        </h1>
+      <div className="flex-1 p-8 relative z-10">
+        <div className="glass-header mb-10">
+          <h1>📤 Upload Notes</h1>
+        </div>
 
         {/* UPLOAD BOX */}
-        <div className="bg-white p-8 rounded-2xl shadow max-w-xl mb-10">
+        <div className="glass-card max-w-xl mb-10">
+          <h2 className="text-xl font-bold mb-6">Select File</h2>
           <input
             type="file"
             onChange={handleFileChange}
-            className="border p-3 w-full rounded-lg"
+            className="glass-input w-full"
           />
 
           {fileName && (
-            <div className="mt-4">
-              Selected:
-              <span className="font-bold ml-2">
-                {fileName}
-              </span>
+            <div className="glass-card-sm mt-4 border-l-4 border-cyan-400">
+              <p className="text-sm text-gray-400">Selected:</p>
+              <p className="font-bold mt-1">✓ {fileName}</p>
             </div>
           )}
 
           <button
             onClick={handleUpload}
-            className="mt-6 bg-black text-white px-6 py-3 rounded-lg"
+            className="glass-btn w-full mt-6"
           >
             Upload Note
           </button>
         </div>
 
         {/* NOTES LIST */}
-        <div className="bg-white p-6 rounded-2xl shadow">
+        <div className="glass-card">
           <h2 className="text-2xl font-bold mb-6">
-            Uploaded Notes
+            📋 Uploaded Notes
           </h2>
 
           {notes.length > 0 ? (
-            <div className="space-y-4">
+            <div className="space-y-3">
               {notes.map((note) => (
                 <div
                   key={note.id}
-                  className="flex justify-between items-center border p-4 rounded-xl"
+                  className="glass-card-sm flex justify-between items-center"
                 >
-                  <p>{note.fileName}</p>
+                  <p className="font-semibold">{note.fileName}</p>
 
                   <button
                     onClick={() => deleteNote(note.id)}
-                    className="bg-red-500 text-white px-4 py-2 rounded-lg"
+                    className="glass-btn-danger"
                   >
                     Delete
                   </button>
@@ -122,7 +119,7 @@ export default function Upload() {
               ))}
             </div>
           ) : (
-            <p>No Notes Uploaded</p>
+            <p className="text-center text-gray-400 py-8">No Notes Uploaded</p>
           )}
         </div>
       </div>

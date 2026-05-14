@@ -13,48 +13,48 @@ export default function Sidebar() {
   };
 
   return (
-    <div className="w-64 bg-black text-white p-6 min-h-screen">
-      <h1 className="text-3xl font-bold mb-10">
+    <div className="w-64 glass-sidebar text-white p-6 min-h-screen sticky top-0 flex flex-col">
+      <h1 className="text-2xl font-bold mb-10 bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
         GP SYSTEM
       </h1>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-3 flex-1">
         {/* ADMIN */}
         {role === "admin" && (
           <>
             <button
               onClick={() => navigate("/dashboard")}
-              className="text-left hover:bg-gray-800 p-3 rounded-xl"
+              className="text-left hover:bg-white/10 p-3 rounded-lg transition duration-200 hover:border-l-2 hover:border-cyan-400"
             >
-              Dashboard
+              📊 Dashboard
             </button>
 
             <button
               onClick={() => navigate("/upload")}
-              className="text-left hover:bg-gray-800 p-3 rounded-xl"
+              className="text-left hover:bg-white/10 p-3 rounded-lg transition duration-200 hover:border-l-2 hover:border-cyan-400"
             >
-              Upload
+              📤 Upload
             </button>
 
             <button
               onClick={() => navigate("/assign")}
-              className="text-left hover:bg-gray-800 p-3 rounded-xl"
+              className="text-left hover:bg-white/10 p-3 rounded-lg transition duration-200 hover:border-l-2 hover:border-cyan-400"
             >
-              Assign
+              📌 Assign
             </button>
 
             <button
               onClick={() => navigate("/tasks")}
-              className="text-left hover:bg-gray-800 p-3 rounded-xl"
+              className="text-left hover:bg-white/10 p-3 rounded-lg transition duration-200 hover:border-l-2 hover:border-cyan-400"
             >
-              Tasks
+              ✓ Tasks
             </button>
 
             <button
               onClick={() => navigate("/users")}
-              className="text-left hover:bg-gray-800 p-3 rounded-xl"
+              className="text-left hover:bg-white/10 p-3 rounded-lg transition duration-200 hover:border-l-2 hover:border-cyan-400"
             >
-              Users
+              👥 Users
             </button>
           </>
         )}
@@ -64,16 +64,16 @@ export default function Sidebar() {
           <>
             <button
               onClick={() => navigate("/principal")}
-              className="text-left hover:bg-gray-800 p-3 rounded-xl"
+              className="text-left hover:bg-white/10 p-3 rounded-lg transition duration-200 hover:border-l-2 hover:border-violet-400"
             >
-              Principal Dashboard
+              🎓 Principal Dashboard
             </button>
 
             <button
               onClick={() => navigate("/tasks")}
-              className="text-left hover:bg-gray-800 p-3 rounded-xl"
+              className="text-left hover:bg-white/10 p-3 rounded-lg transition duration-200 hover:border-l-2 hover:border-violet-400"
             >
-              Review Tasks
+              📋 Review Tasks
             </button>
           </>
         )}
@@ -83,16 +83,16 @@ export default function Sidebar() {
           <>
             <button
               onClick={() => navigate("/teacher")}
-              className="text-left hover:bg-gray-800 p-3 rounded-xl"
+              className="text-left hover:bg-white/10 p-3 rounded-lg transition duration-200 hover:border-l-2 hover:border-green-400"
             >
-              Teacher Dashboard
+              👨‍🏫 Teacher Dashboard
             </button>
 
             <button
               onClick={() => navigate("/upload")}
-              className="text-left hover:bg-gray-800 p-3 rounded-xl"
+              className="text-left hover:bg-white/10 p-3 rounded-lg transition duration-200 hover:border-l-2 hover:border-green-400"
             >
-              Upload Notes
+              📝 Upload Notes
             </button>
           </>
         )}
@@ -101,9 +101,9 @@ export default function Sidebar() {
       {/* LOGOUT */}
       <button
         onClick={logout}
-        className="mt-10 bg-red-500 px-4 py-3 rounded-xl w-full"
+        className="glass-btn-danger w-full mt-auto"
       >
-        Logout
+        🚪 Logout
       </button>
     </div>
   );
