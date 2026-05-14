@@ -30,11 +30,13 @@ export default function SplashScreen() {
         </p>
 
         {/* Animated Ring Spinner */}
-        <div className="mt-12 flex justify-center">
-          <div className="relative w-24 h-24">
-            <div className="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-600 animate-spin"></div>
-            <div className="absolute inset-2 rounded-full border border-cyan-400/30"></div>
-            <div className="absolute inset-4 rounded-full border border-pink-400/20 animate-pulse"></div>
+        <div className="mt-12 flex justify-center items-center">
+          <div className="relative w-28 h-28">
+            <div
+              className="absolute inset-0 rounded-full border-4 border-transparent border-t-cyan-400 border-r-pink-500 border-b-purple-500 animate-spin"
+            ></div>
+            <div className="absolute inset-2 rounded-full border border-cyan-400/25"></div>
+            <div className="absolute inset-5 rounded-full bg-cyan-400/10 blur-sm animate-pulse"></div>
           </div>
         </div>
 

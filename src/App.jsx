@@ -39,7 +39,16 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         {/* LOGIN */}
-        <Route path="/" element={<Login />} />
+        <Route
+          path="/"
+          element={
+            localStorage.getItem("isLoggedIn") ? (
+              <Navigate to="/dashboard" replace />
+            ) : (
+              <Login />
+            )
+          }
+        />
         <Route path="/signup" element={<Signup />} />
 
         {/* ADMIN DASHBOARD */}
