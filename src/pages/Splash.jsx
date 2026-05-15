@@ -9,7 +9,7 @@ export default function Splash() {
     setTimeout(() => {
       navigate("/login");
     }, 3500);
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center overflow-hidden relative">

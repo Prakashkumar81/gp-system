@@ -13,7 +13,7 @@ export default function IntroSplash() {
       clearTimeout(t1);
       clearTimeout(t2);
     };
-  }, []);
+  }, [navigate]);
 
   return (
     <div className={`intro ${fade ? "fade" : ""}`}>

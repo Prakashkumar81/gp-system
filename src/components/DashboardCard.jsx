@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function DashboardCard({
   title,
   value,
@@ -17,3 +19,9 @@ export default function DashboardCard({
     </div>
   );
 }
+
+DashboardCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  color: PropTypes.string.isRequired,
+};

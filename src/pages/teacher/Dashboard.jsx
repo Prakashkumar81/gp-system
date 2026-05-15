@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import PropTypes from "prop-types";
 import Sidebar from "../components/Sidebar";
 
 const StatusPill = ({ status }) => {
@@ -13,6 +14,10 @@ const StatusPill = ({ status }) => {
           : "glass-badge warning";
 
   return <span className={cls}>{normalized}</span>;
+};
+
+StatusPill.propTypes = {
+  status: PropTypes.string,
 };
 
 export default function TeacherDashboard() {
